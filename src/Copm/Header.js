@@ -10,7 +10,7 @@ function Header() {
         <a className="main-link" href="/html">
           HTML
         </a>
-        <ul className="sub-ul">
+        {/* <ul className="sub-ul">
           <li>
             <a href="">Full Course</a>
           </li>
@@ -20,7 +20,7 @@ function Header() {
           <li>
             <a href="">learn in 1h</a>
           </li>
-        </ul>
+        </ul> */}
       </li>
       <li className="main-list">
         <a className="main-link" href="/css">
@@ -63,7 +63,7 @@ function Header() {
   </header>
 
 
-
+{/* 
   <header style={{ backgroundColor: "red" }} className="show-when-mobile">
     <h1>Courses 4 Arab</h1>
     <label className="absolute" htmlFor="burger">
@@ -131,7 +131,7 @@ function Header() {
         </ul>
       </div>
     </div>
-  </header> 
+  </header>  */}
 
 
     </div>
