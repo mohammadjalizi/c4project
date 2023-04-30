@@ -163,6 +163,12 @@ main{
   text-align: center;
 }
 
+.main-link.active{
+  color: cyan;
+  box-shadow: 0 0 5px cyan;
+  border-radius: 5px;
+
+}
 footer{
   background-color: #1b1b1b;
 
