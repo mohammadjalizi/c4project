@@ -1,4 +1,5 @@
 import React from 'react'
+import { Footer } from '../Copm/Footer'
 
 const Css = () => {
   return (
@@ -135,10 +136,7 @@ const Css = () => {
   <main>
   css page
   </main>
-  <footer>
-    Designed and developed by Courses4Arab.com
-    <span>🧡</span>
-  </footer>
+  <Footer/>
 </>
   )
 }

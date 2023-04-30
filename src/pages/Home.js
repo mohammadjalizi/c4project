@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Copm/Header'
+import { Footer } from '../Copm/Footer'
 
 const Home = () => {
   return (
@@ -8,10 +9,7 @@ const Home = () => {
   <main>
   Home page
   </main>
-  <footer>
-    Designed and developed by Courses4Arab.com
-    <span>🧡</span>
-  </footer>
+<Footer/>
 </>
   )
 }

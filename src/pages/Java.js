@@ -1,4 +1,5 @@
 import React from 'react'
+import { Footer } from '../Copm/Footer'
 
 const Java = () => {
   return (
@@ -135,10 +136,7 @@ const Java = () => {
   <main>
   javascript page
   </main>
-  <footer>
-    Designed and developed by Courses4Arab.com
-    <span>🧡</span>
-  </footer>
+<Footer/>
 </>
 
   )
