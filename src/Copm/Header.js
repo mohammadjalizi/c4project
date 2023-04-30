@@ -7,7 +7,7 @@ function Header() {
     <h1>Courses 4 Arab</h1>
     <ul className="flex">
       <li className="main-list">
-        <a className="main-link" href="www">
+        <a className="main-link" href="/html">
           HTML
         </a>
         <ul className="sub-ul">
@@ -23,7 +23,7 @@ function Header() {
         </ul>
       </li>
       <li className="main-list">
-        <a className="main-link" href="#">
+        <a className="main-link" href="/css">
           CSS
         </a>
         <ul className="sub-ul">
@@ -50,7 +50,7 @@ function Header() {
         </ul>
       </li>
       <li className="main-list">
-        <a className="main-link" href="#">
+        <a className="main-link" href="/java">
           JavaScript
         </a>
         <ul className="sub-ul sub-of-js">
