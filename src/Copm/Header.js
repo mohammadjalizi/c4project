@@ -5,7 +5,12 @@ function Header() {
   return (
     <div>
     <header className="hide-when-mobile">
-    <h1>Courses 4 Arab</h1>
+
+        <NavLink  to={"/"}>
+
+        <h1>Courses 4 Arab</h1>
+        </NavLink>
+  
     <ul className="flex">
       <li className="main-list">
         <NavLink className="main-link" to="/html">

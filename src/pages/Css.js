@@ -1,5 +1,6 @@
 import React from 'react'
 import { Footer } from '../Copm/Footer'
+import Maincontent from '../Copm/Maincontent'
 
 const Css = () => {
   return (
@@ -133,9 +134,7 @@ const Css = () => {
       </div>
     </div>
   </header>
-  <main>
-  css page
-  </main>
+<Maincontent  PageName="csspage"/>
   <Footer/>
 </>
   )

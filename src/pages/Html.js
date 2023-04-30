@@ -1,17 +1,14 @@
 import React from 'react'
 import Header from '../Copm/Header'
+import Maincontent from '../Copm/Maincontent'
+import { Footer } from '../Copm/Footer'
 
 const Html = () => {
   return (
     <>
 <Header/>
-  <main>
-  Html page
-  </main>
-  <footer>
-    Designed and developed by Courses4Arab.com
-    <span>🧡</span>
-  </footer>
+ <Maincontent PageName="Htmlpage"/>
+<Footer/>
 </>
   )
 }
