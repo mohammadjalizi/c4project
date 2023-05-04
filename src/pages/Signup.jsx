@@ -6,7 +6,10 @@ import { Helmet} from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { auth } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useState } from 'react';
 const Signup = () => {
+  const[email,Setemail]=useState("")
+  const[password,Setpassword]=useState("")
   return (
     <>
         <Helmet>
