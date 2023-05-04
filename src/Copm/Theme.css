@@ -38,3 +38,34 @@ background-color: #242424;
 .Dark .ali{
   background-color: rgba(17, 17, 17, 0.885) !important
 }
+.icons{
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.Light .fa-sun{
+
+display: none;
+
+
+}
+.fa-solid{
+font-size: 20px;
+
+}
+.fa-solid:hover{
+font-size: 22px;
+cursor: pointer;
+transition: all 0.3s;
+
+}
+.fa-sun{
+color: orange;
+
+}
+.Dark .fa-moon{
+display: none;
+
+}
