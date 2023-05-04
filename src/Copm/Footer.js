@@ -4,9 +4,12 @@ const Footer = () => {
   return (
     <>
 
-
-Designed and developed by Courses4Arab.com
-    <span>🧡</span>
+<div className="myfooter">
+      <footer className="ali   ">
+        Designed and developed by Courses4Arab.com
+        <span>🧡</span>
+      </footer>
+</div>
     </>
   )
 }
