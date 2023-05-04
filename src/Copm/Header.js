@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
+import './Theme.css'
 const Header = () => {
   return (
     <div>
@@ -8,6 +9,7 @@ const Header = () => {
         <h1>
           <Link to="/">c4a.dev</Link>
         </h1>
+        <button className="theme-btn" type="button">🌙</button>
         <ul className="flex">
           <li className="main-list">
             <NavLink className="main-link" to="/html">
