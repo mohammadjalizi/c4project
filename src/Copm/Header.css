@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-around;
   }
+  .icons{
+
+    
+  }
   
   .show-when-mobile {
     display: none;
