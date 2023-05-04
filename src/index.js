@@ -10,6 +10,9 @@ import Html from "./pages/Html";
 import Css from "./pages/Css";
 import Java from "./pages/Java";
 
+// ================level2 
+import {ThemeProvider} from "./context/ThemeContext";
+
 
 const router = createBrowserRouter([
   {
@@ -37,9 +40,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
-
+    <ThemeProvider>
 
     <RouterProvider router={router} />
+    </ThemeProvider>
     </HelmetProvider>
 
   </React.StrictMode>
