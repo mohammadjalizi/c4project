@@ -4,45 +4,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Helmet, HelmetProvider } from 'react-helmet-async';  
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import Html from "./pages/Html";
-import Css from "./pages/Css";
-import Java from "./pages/Java";
 
 // ================level2 
 import {ThemeProvider} from "./context/ThemeContext";
+import App from "./App";
 
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home/>,
-    errorElement: <h1>SORROY.........</h1>,
-  },
-
-  {
-    path: "/html",
-    element: <Html />,
-  },
-
-  {
-    path: "/css",
-    element: <Css />,
-  },
-  {
-    path: "/javascript",
-    element: <Java />,
-  },
-]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
     <ThemeProvider>
-
-    <RouterProvider router={router} />
+<App/>
     </ThemeProvider>
     </HelmetProvider>
 
