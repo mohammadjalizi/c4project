@@ -7,6 +7,8 @@ import Java from "./pages/Java";
 
 import ThemeContext from "./context/ThemeContext";
 import  { useContext } from 'react'
+import Sign from "./pages/Sign";
+import Signup from "./pages/Signup";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
   {
     path: "/javascript",
     element: <Java />,
+  },
+  {
+    path: "/Signin",
+    element: <Sign />,
+  },
+  {
+    path: "/Signup",
+    element: <Signup />,
   },
 ]);
 
