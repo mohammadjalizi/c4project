@@ -14,7 +14,12 @@ const Sign = () => {
     </Helmet>
 <Header/>
 <main>
- sign-in
+<form>
+
+<input type='email'/>
+<input type='password'/>
+<button>sign in</button>
+</form>
   </main>
 <Footer/>
 </>
