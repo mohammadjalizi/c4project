@@ -32,3 +32,25 @@ form button{
   border: none;
   color: white;
 }
+.account{
+  font-size: 16px;
+  margin-top: 12px;
+  font-weight: 100;
+}
+
+.account a{
+  text-decoration: underline;
+  font-weight: 600;
+  color: #00c6c6;
+  font-size: 18px;
+}
+
+.Light form p {
+  color: rgb(0, 0, 0);
+}
+
+
+form button:active{
+scale: 0.9;
+border-radius: 0;
+}
