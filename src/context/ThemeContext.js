@@ -13,6 +13,7 @@ const reducer = (firstState, action) => {
 export function ThemeProvider({ children }) {
   const [firstState, dispatch] = useReducer(reducer, initialData);
   const toggletheme = (newName) => {
+    localStorage.setItem("mytheme",newName)
     dispatch({ type: "CHANGE_THEME", newValue: newName });
   };
   return (
