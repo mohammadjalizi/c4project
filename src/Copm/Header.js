@@ -8,7 +8,7 @@ import ThemeContext from "../context/ThemeContext";
 const Header = () => {
   const {Theme,toggletheme} = useContext(ThemeContext);
   return (
-    <div>
+    <div className="myheader">
       <header className="hide-when-mobile">
         <h1>
           <Link to="/">c4a.dev</Link>
