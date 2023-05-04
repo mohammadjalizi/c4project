@@ -9,7 +9,7 @@ const Header = () => {
         <h1>
           <Link to="/">c4a.dev</Link>
         </h1>
-        <button className="theme-btn" type="button">🌙</button>
+        <button className="theme-btn" >dark</button>
         <ul className="flex">
           <li className="main-list">
             <NavLink className="main-link" to="/html">
