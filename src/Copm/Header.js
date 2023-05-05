@@ -3,10 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import './Header.css'
 import './Theme.css'
 import {useContext } from "react";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import ThemeContext from "../context/ThemeContext";
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth, options);
   const {Theme,toggletheme} = useContext(ThemeContext);
+
   return (
     <div className="myheader">
       <header className="hide-when-mobile">
