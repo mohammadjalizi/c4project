@@ -26,20 +26,22 @@ const Sign = () => {
           }
           } required  placeholder=" E-mail : "  type="email" />
           <input onChange={(eo) => {
-            Setemail(eo.target.value)
+            Setpassword(eo.target.value)
           }
           } required placeholder=" Password : " type="password" />
-          <button onClick={()=>{
-
+          <button onClick={(eo)=>{
+eo.preventDefault()
 signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    console.log(user)
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    console.log(errorMessage)
   });
 
           }}>Sign in</button>
