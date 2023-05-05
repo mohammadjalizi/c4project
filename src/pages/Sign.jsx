@@ -4,8 +4,12 @@ import Maincontent from '../Copm/Maincontent'
 import Footer from '../Copm/Footer'
 import { Helmet} from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase/Config';
+import { useState } from 'react';
 const Sign = () => {
+  const[email,Setemail]=useState("")
+  const[password,Setpassword]=useState("")
   return (
     <>
         <Helmet>
