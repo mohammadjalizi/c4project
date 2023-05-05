@@ -21,8 +21,14 @@ const Sign = () => {
 <main>
 <form>
           <p style={{ fontSize: "23px", marginBottom: "22px" }}>Create a new account <span>🧡</span> </p>
-          <input required  placeholder=" E-mail : "  type="email" />
-          <input required placeholder=" Password : " type="password" />
+          <input  onChange={(eo) => {
+            Setemail(eo.target.value)
+          }
+          } required  placeholder=" E-mail : "  type="email" />
+          <input onChange={(eo) => {
+            Setemail(eo.target.value)
+          }
+          } required placeholder=" Password : " type="password" />
           <button onClick={()=>{
 
 signInWithEmailAndPassword(auth, email, password)
