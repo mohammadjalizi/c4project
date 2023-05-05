@@ -19,7 +19,20 @@ const Sign = () => {
           <p style={{ fontSize: "23px", marginBottom: "22px" }}>Create a new account <span>🧡</span> </p>
           <input required  placeholder=" E-mail : "  type="email" />
           <input required placeholder=" Password : " type="password" />
-          <button>Sign in</button>
+          <button onClick={()=>{
+
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+          }}>Sign in</button>
           <p className="account">
           Already hava an account <Link to="/Signup"> Sign-up</Link>
           </p>

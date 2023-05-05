@@ -6,6 +6,7 @@ import {useContext } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../firebase/Config";
 import ThemeContext from "../context/ThemeContext";
+import { getAuth, signOut } from "firebase/auth";
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   const {Theme,toggletheme} = useContext(ThemeContext);
@@ -37,7 +38,15 @@ toggletheme(Theme==="Light"?"Dark":"Light")
             Sign-in
             </NavLink>
             </li>  }
-            {user &&  <li className="main-list">
+            {user &&  <li onClick={()=>{
+
+signOut(auth).then(() => {
+ console.log(" Sign-out successful.")
+}).catch((error) => {
+  // An error happened.
+});
+
+            }} className="main-list">
             <NavLink className="main-link">
             Sign-out
             </NavLink>
