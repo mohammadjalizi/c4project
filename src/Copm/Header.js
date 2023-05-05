@@ -4,10 +4,10 @@ import './Header.css'
 import './Theme.css'
 import {useContext } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-
+import { auth } from "../firebase/Config";
 import ThemeContext from "../context/ThemeContext";
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth, options);
+  const [user, loading, error] = useAuthState(auth);
   const {Theme,toggletheme} = useContext(ThemeContext);
 
   return (
