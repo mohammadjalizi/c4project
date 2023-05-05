@@ -12,6 +12,7 @@ const Header = () => {
 
   return (
     <div className="myheader">
+      {user&&<h1>doneeeee</h1>}
       <header className="hide-when-mobile">
         <h1>
           <Link to="/">c4a.dev</Link>
@@ -31,16 +32,23 @@ toggletheme(Theme==="Light"?"Dark":"Light")
       </div>
 
         <ul className="flex">
-        <li className="main-list">
+        {!user &&  <li className="main-list">
             <NavLink className="main-link" to="/Signin">
             Sign-in
             </NavLink>
-            </li>
-            <li className="main-list">
+            </li>  }
+            {user &&  <li className="main-list">
+            <NavLink className="main-link">
+            Sign-out
+            </NavLink>
+            </li>  }
+            {!user &&    <li className="main-list">
             <NavLink className="main-link" to="/Signup ">
             Sign-up 
             </NavLink>
-            </li>
+            </li> }
+      
+         
           <li className="main-list">
             <NavLink className="main-link" to="/html">
               HTML
