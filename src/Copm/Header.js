@@ -57,8 +57,7 @@ signOut(auth).then(() => {
             </NavLink>
             </li> }
       
-         
-          <li className="main-list">
+         {user &&   <li className="main-list">
             <NavLink className="main-link" to="/html">
               HTML
             </NavLink>
@@ -73,9 +72,9 @@ signOut(auth).then(() => {
                 <a href="">learn in 1h</a>
               </li>
             </ul> */}
-          </li>
-         
-          <li className="main-list">
+          </li> }
+        
+         {user &&     <li className="main-list">
             <NavLink className="main-link" to="/javascript">
               JavaScript
             </NavLink>
@@ -84,7 +83,8 @@ signOut(auth).then(() => {
                 <a href="">coming soon🔥</a>
               </li>
             </ul> */}
-          </li>
+          </li> }
+      
         </ul>
       </header>
 
