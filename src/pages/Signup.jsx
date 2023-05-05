@@ -3,11 +3,12 @@ import Header from '../Copm/Header'
 import Maincontent from '../Copm/Maincontent'
 import Footer from '../Copm/Footer'
 import { Helmet} from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link,  useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/Config';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 const Signup = () => {
+  const navigate = useNavigate();
   const[email,Setemail]=useState("")
   const[password,Setpassword]=useState("")
   return (
@@ -42,6 +43,7 @@ createUserWithEmailAndPassword(auth, email, password)
     // Signed in 
     const user = userCredential.user;
     console.log("doneeeeeeee")
+    navigate("/Signin")
     // ...
   })
   .catch((error) => {
