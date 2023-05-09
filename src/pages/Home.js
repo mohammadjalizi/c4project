@@ -32,7 +32,7 @@ const Home = () => {
 
    
 <Header/>
-{user &&<Maincontent PageName="Home"/> }
+{user && <main> welcoo{user.displayName}</main> }
 
 {!user &&     <main>
           <p className="pls">

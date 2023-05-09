@@ -26,10 +26,11 @@ const Signup = () => {
           <p style={{ fontSize: "23px", marginBottom: "22px" }}>Create a new account <span>🧡</span> </p>
           <input onChange={(eo)=>{
 
-SetuserName(eo.target.value)
+          SetuserName(eo.target.value)
 
 
           }} required  placeholder=" UserName : "  type="text" />
+
           <input onChange={(eo)=>{
 
 Setemail(eo.target.value)
@@ -39,7 +40,7 @@ Setemail(eo.target.value)
 
           <input  onChange={(eo)=>{
 
-Setpassword(eo.target.value)
+         Setpassword(eo.target.value)
 
 
           }}   required placeholder=" Password : " type="password" />
