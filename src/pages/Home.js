@@ -19,6 +19,8 @@ const Home = () => {
   return (
     <>
     <Helmet>
+
+  
 <title>Homepage</title>
 <meta name='description'  content='homeeee'/>
 
@@ -28,7 +30,14 @@ const Home = () => {
 
    
 <Header/>
-<Maincontent PageName="Home"/>
+{user &&<Maincontent PageName="Home"/> }
+
+{!user &&  <main>
+
+<p>   pleas sing ing for continu   </p>
+
+</main> }
+
 <Footer/>
 
 </>
