@@ -50,6 +50,9 @@ signInWithEmailAndPassword(auth, email, password)
 
       Setfirebaseror("wrong Email")
 
+    }else{
+
+      Setfirebaseror(errorCode)
     }
   
     SethasEroor(true)
