@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Html from "./pages/Html";
 import Css from "./pages/Css";
-import Java from "./pages/Java";
+import Profile from "./pages/Profile";
 
 import ThemeContext from "./context/ThemeContext";
 import  { useContext } from 'react'
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/Profile",
-    element: <Java />,
+    element: <Profile />,
   },
   {
     path: "/Signin",
