@@ -75,8 +75,8 @@ signOut(auth).then(() => {
           </li> }
         
          {user &&     <li className="main-list">
-            <NavLink className="main-link" to="/javascript">
-              JavaScript
+            <NavLink className="main-link" to="/    Profile">
+         Profile
             </NavLink>
             {/* <ul className="sub-ul sub-of-js">
               <li>

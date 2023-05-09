@@ -32,7 +32,7 @@ const Home = () => {
 
    
 <Header/>
-{user && <main> welcoo{user.displayName}</main> }
+{user && <main> welcome:{user.displayName}<span> 🧡 </span></main> }
 
 {!user &&     <main>
           <p className="pls">

@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <Css />,
   },
   {
-    path: "/javascript",
+    path: "/Profile",
     element: <Java />,
   },
   {
