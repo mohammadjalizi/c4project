@@ -5,6 +5,7 @@ import Maincontent from '../Copm/Maincontent'
 import Footer from '../Copm/Footer'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../firebase/Config";
+import { Link } from 'react-router-dom';
 // ===========    
 
 // level2
@@ -32,11 +33,17 @@ const Home = () => {
 <Header/>
 {user &&<Maincontent PageName="Home"/> }
 
-{!user &&  <main>
+{!user &&     <main>
+          <p className="pls">
+            Please{" "}
+            <Link style={{ fontSize: "30px" }} to="/Signin">
+              sign in
+            </Link>{" "}
+            to continue... 🧡
+          </p>
+        </main>
 
-<p>   pleas sing ing for continu   </p>
-
-</main> }
+}
 
 <Footer/>
 
