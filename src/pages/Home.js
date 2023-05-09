@@ -17,6 +17,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [user, loading, error] = useAuthState(auth);
+  console.log(user)
   return (
     <>
     <Helmet>

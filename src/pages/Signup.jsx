@@ -12,6 +12,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const[email,Setemail]=useState("")
   const[password,Setpassword]=useState("")
+  const[userName,SetuserName]=useState("")
   return (
     <>
         <Helmet>
@@ -25,10 +26,10 @@ const Signup = () => {
           <p style={{ fontSize: "23px", marginBottom: "22px" }}>Create a new account <span>🧡</span> </p>
           <input onChange={(eo)=>{
 
-Setemail(eo.target.value)
+SetuserName(eo.target.value)
 
 
-          }} required  placeholder=" username : "  type="text" />
+          }} required  placeholder=" UserName : "  type="text" />
           <input onChange={(eo)=>{
 
 Setemail(eo.target.value)
@@ -54,15 +55,15 @@ createUserWithEmailAndPassword(auth, email, password)
   
 const auth = getAuth();
 updateProfile(auth.currentUser, {
-  displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+  displayName: userName
 }).then(() => {
-  // Profile updated!
+  navigate("/")
   // ...
 }).catch((error) => {
-  // An error occurred
+console.log(error.code)
   // ...
 });
-    navigate("/Signin")
+
     // ...
   })
   .catch((error) => {
