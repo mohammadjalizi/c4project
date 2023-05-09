@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className="myheader">
-      {user&&<h1>doneeeee</h1>}
+   
       <header className="hide-when-mobile">
         <h1>
           <Link to="/">c4a.dev</Link>
@@ -47,9 +47,9 @@ signOut(auth).then(() => {
 });
 
             }} className="main-list">
-            <NavLink className="main-link">
+            <button className="main-link signout">
             Sign-out
-            </NavLink>
+            </button>
             </li>  }
             {!user &&    <li className="main-list">
             <NavLink className="main-link" to="/Signup ">
@@ -61,7 +61,7 @@ signOut(auth).then(() => {
             <NavLink className="main-link" to="/html">
               HTML
             </NavLink>
-            {/* <ul className="sub-ul">
+            <ul className="sub-ul">
               <li>
                 <a href="">Full Course</a>
               </li>
@@ -71,7 +71,7 @@ signOut(auth).then(() => {
               <li>
                 <a href="">learn in 1h</a>
               </li>
-            </ul> */}
+            </ul>
           </li> }
         
          {user &&     <li className="main-list">

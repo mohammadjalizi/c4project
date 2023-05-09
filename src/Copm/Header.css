@@ -6,7 +6,10 @@
 
     
   }
-  
+  .signout{
+    all:unset;
+    padding: 8px 15px;
+  }
   .show-when-mobile {
     display: none;
   }
