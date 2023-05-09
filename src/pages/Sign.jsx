@@ -12,6 +12,7 @@ const Sign = () => {
   const[email,Setemail]=useState("")
   const[password,Setpassword]=useState("")
   const[hasEroor,SethasEroor]=useState(false)
+  const[firebaseror,Setfirebaseror]=useState(false)
   return (
     <>
         <Helmet>
@@ -45,6 +46,12 @@ signInWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    if(errorCode==="auth/invalid-email"){
+
+      Setfirebaseror("wrong Email")
+
+    }
+  
     SethasEroor(true)
   });
 
@@ -52,7 +59,7 @@ signInWithEmailAndPassword(auth, email, password)
           <p className="account">
           Already hava an account <Link to="/Signup"> Sign-up</Link>
           </p>
-          {hasEroor &&<h2>erooorcode</h2>}
+          {hasEroor &&<h2>{firebaseror}</h2>}
         </form>
   </main>
 <Footer/>
