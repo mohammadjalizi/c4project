@@ -50,9 +50,13 @@ signInWithEmailAndPassword(auth, email, password)
 
       Setfirebaseror("wrong Email")
 
-    }else{
+    }else if(errorCode==="auth/user-not-found"){
 
+      Setfirebaseror("wrong Email...")
+    }
+    else{
       Setfirebaseror(errorCode)
+
     }
   
     SethasEroor(true)
