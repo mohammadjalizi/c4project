@@ -12,14 +12,14 @@ const Html = () => {
 useEffect(()=>{
 if(!user){
 
-navigate("/Signin")
+navigate("/")
 
 
 }
 
 
 
-})
+},[user])
   return (
     <>
         <Helmet>

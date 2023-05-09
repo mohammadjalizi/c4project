@@ -11,14 +11,14 @@ const Java = () => {
 useEffect(()=>{
 if(!user){
 
-navigate("/Signin")
+navigate("/")
 
 
 }
 
 
 
-})
+},[user])
   return (
     <>
 <Header/>
