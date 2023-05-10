@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Copm/Header'
 import Maincontent from '../Copm/Maincontent'
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile,sendEmailVerification } from "firebase/auth";
 import Footer from '../Copm/Footer'
 import { Helmet} from 'react-helmet-async';
 import { Link,  useNavigate } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { auth } from '../firebase/Config';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
+
+import { auth } from "../firebase/Config";
 import { useState } from 'react';
 const Signup = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -16,6 +18,38 @@ const Signup = () => {
   const[email,Setemail]=useState("")
   const[password,Setpassword]=useState("")
   const[userName,SetuserName]=useState("")
+
+
+
+  // loading /////////////////
+
+
+  if(loading){
+
+return(
+<>
+<Header/>
+
+<main>
+<h3>loading........</h3>
+
+
+</main>
+<footer/> 
+
+
+</>
+
+
+)
+
+
+  }
+
+
+
+
+
 
 // Not sign-in
 
@@ -61,7 +95,12 @@ createUserWithEmailAndPassword(auth, email, password)
     // Signed in 
     const user = userCredential.user;
 
-  
+    const auth = getAuth();
+    sendEmailVerification(auth.currentUser)
+      .then(() => {
+     
+console.log("   // Email verification sent!")
+      });
 const auth = getAuth();
 updateProfile(auth.currentUser, {
   displayName: userName
