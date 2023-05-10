@@ -1,55 +1,82 @@
-import React, { useEffect } from 'react'
+import Header from "../Copm/Header";
+import Footer from "../Copm/Footer";
+
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from '../Copm/Header'
-import Footer from '../Copm/Footer'
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/Config";
+import Moment from "react-moment";
+
 const Profile = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-useEffect(()=>{
-if(!user){
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  });
+  if(loading){
+return (
+<>
 
-navigate("/")
+<p> loading page .... </p>
+
+</>
 
 
-}
+)
 
+  }
+  if(error){
+  return(
+    <>
+    <main> Eroor:{error}  </main>
+    </>
+  )
 
-
-},[user])
+  }
 
   return (
     <>
-    <Helmet>
+      <Helmet>
+        <title>Profile</title>
 
-      <title>Profile</title>
-      <style type='text/css'>
+        <style type="text/css">{` 
+        main{
+          flex-direction: column;
+        }
 
-{
-  `
-  main{
+        .delete{
+          margin-top: 25px;
+        background-color:  #dc3545;
+        padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    border-color: #dc3545;
+        }
+        
+        `}</style>
+      </Helmet>
+      <Header />
 
-    flex-direction: column;
-  }
-  `
-}
+      <main>
+        <h6>Email: {user.email}</h6>
+        <h6>UserName: {user.displayName}</h6>
 
-      </style>
-    </Helmet>
-<Header/>
-  <main>
-<h6> Emaile\:  {user.email}</h6>
-<h6>  UserName:{user.displayName}  </h6>
-<h6> last sign-in:  </h6>
-<h6> Account Created: </h6>
-<button className='delete'>  Delete account  </button>
-  </main>
-<Footer/>
-</>
+        <h6>
+          Last Sign-in : <Moment fromNow date={user.metadata.lastSignInTime} />{" "}
+        </h6>
 
-  )
-}
+        <h6>
+          Account Created : <Moment fromNow date={user.metadata.creationTime} />
+        </h6>
+        <button className="delete">Delete account</button>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
-export default Profile
+export default Profile;
