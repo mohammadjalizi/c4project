@@ -64,3 +64,15 @@ form button:active{
 scale: 0.9;
 border-radius: 0;
 }
+
+button:hover{
+scale: 1.05;
+transition: all  0.1s;
+
+
+}
+button:active{
+  scale: 0.9;
+  
+  
+  }
