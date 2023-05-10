@@ -7,12 +7,20 @@ import { Helmet} from 'react-helmet-async';
 import { Link,  useNavigate } from 'react-router-dom';
 import { auth } from '../firebase/Config';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { useState } from 'react';
 const Signup = () => {
+  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const[email,Setemail]=useState("")
   const[password,Setpassword]=useState("")
   const[userName,SetuserName]=useState("")
+
+// Not sign-in
+
+if(!user){
+
   return (
     <>
         <Helmet>
@@ -84,6 +92,10 @@ console.log(error.code)
 <Footer/>
 </>
   )
+}
+
+
+
 }
 
 export default Signup
