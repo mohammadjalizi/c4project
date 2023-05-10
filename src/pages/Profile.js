@@ -36,6 +36,7 @@ return (
   )
 
   }
+if(user){
 
   return (
     <>
@@ -77,6 +78,8 @@ return (
       <Footer />
     </>
   );
+}
+ 
 };
 
 export default Profile;
