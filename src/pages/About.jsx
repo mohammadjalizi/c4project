@@ -6,7 +6,7 @@ import { Helmet} from 'react-helmet-async';
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from "../firebase/Config";
-const Html = () => {
+const About = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 useEffect(()=>{
@@ -23,15 +23,15 @@ navigate("/")
   return (
     <>
         <Helmet>
-<title>Htmlepage</title>
-<meta name='description'  content='htmleeee'/>
+<title>  About page</title>
+
 
     </Helmet>
 <Header/>
- <Maincontent PageName="Htmlpage"/>
+ <Maincontent PageName="Aboutlpage"/>
 <Footer/>
 </>
   )
 }
 
-export default Html
+export default About

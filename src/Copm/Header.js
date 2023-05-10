@@ -58,7 +58,7 @@ signOut(auth).then(() => {
             </li> }
       
          {user &&   <li className="main-list">
-            <NavLink className="main-link" to="/html">
+            <NavLink className="main-link" to="/About">
              About
             </NavLink>
            
