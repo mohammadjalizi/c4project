@@ -53,6 +53,12 @@ if(user){
         <style type="text/css">{` 
         main{
           flex-direction: column;
+    
+
+    align-items: start;
+
+    width: fit-content;
+    margin: auto;
         }
 
         .delete{
