@@ -59,19 +59,9 @@ signOut(auth).then(() => {
       
          {user &&   <li className="main-list">
             <NavLink className="main-link" to="/html">
-              HTML
+             About
             </NavLink>
-            <ul className="sub-ul">
-              <li>
-                <a href="">Full Course</a>
-              </li>
-              <li>
-                <a href="">Crash Course</a>
-              </li>
-              <li>
-                <a href="">learn in 1h</a>
-              </li>
-            </ul>
+           
           </li> }
         
          {user &&     <li className="main-list">
