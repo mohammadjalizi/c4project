@@ -12,7 +12,7 @@ const Profile = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
-    if (!user) {
+    if (!user &&!loading) {
       navigate("/");
     }
   });
@@ -20,7 +20,14 @@ const Profile = () => {
 return (
 <>
 
-<p> loading page .... </p>
+<Header/>
+
+
+<main>
+<h3>  LOADING...............  </h3>
+
+</main>
+<Footer/>
 
 </>
 
