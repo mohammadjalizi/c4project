@@ -1,140 +1,171 @@
-import React from 'react'
-import Header from '../Copm/Header'
-import Maincontent from '../Copm/Maincontent'
-import { getAuth, updateProfile,sendEmailVerification } from "firebase/auth";
-import Footer from '../Copm/Footer'
-import { Helmet} from 'react-helmet-async';
-import { Link,  useNavigate } from 'react-router-dom';
-import { auth } from '../firebase/Config';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useAuthState } from 'react-firebase-hooks/auth';
+import Header from "../Copm/Header";
+import Footer from "../Copm/Footer";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 
 
 import { auth } from "../firebase/Config";
-import { useState } from 'react';
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 const Signup = () => {
-  const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
-  const[email,Setemail]=useState("")
-  const[password,Setpassword]=useState("")
-  const[userName,SetuserName]=useState("")
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [hasError, sethasError] = useState(false);
+  const [firebaseError, setfirebaseError] = useState("");
+  const [userName, setuserName] = useState("");
+  const [user, loading, error] = useAuthState(auth);
 
+  // Loading    (done)
+  // NOT sign-in  (done)
+  // sign-in without Email verification   (done)
+  // (sign-in && verified email) => navigate(/)
 
+  if (loading) {
+    return (
+      <div>
+        <Header />
 
-  // loading /////////////////
-
-
-  if(loading){
-
-return(
-<>
-<Header/>
-
-<main>
-<h3>loading........</h3>
-
-
-</main>
-<footer/> 
-
-
-</>
-
-
-)
-
-
+        <main>Loading........</main>
+        <Footer />
+      </div>
+    );
   }
 
+if (user) {
+  if (!user.emailVerified) {
+    return (
+      <div>
+        <Header />
 
+        <main>
+          <p>We send you an email to verify your Account</p>
+          <button className="delete">Send again</button>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+}
 
-
-
-
-// Not sign-in
-
-if(!user){
-
-  return (
-    <>
+  if (!user) {
+    return (
+      <>
         <Helmet>
-<title>Sign-up</title>
+          <title>Signup</title>
+        </Helmet>
+        <Header />
 
+        <main>
+          <form>
+            <p style={{ fontSize: "23px", marginBottom: "22px" }}>
+              Create a new account <span>🧡</span>{" "}
+            </p>
 
-    </Helmet>
-<Header/>
-<main>
-<form>
-          <p style={{ fontSize: "23px", marginBottom: "22px" }}>Create a new account <span>🧡</span> </p>
-          <input onChange={(eo)=>{
+            <input
+              onChange={(eo) => {
+                setuserName(eo.target.value);
+              }}
+              required
+              placeholder=" UserName : "
+              type="text"
+            />
 
-          SetuserName(eo.target.value)
+            <input
+              onChange={(eo) => {
+                setemail(eo.target.value);
+              }}
+              required
+              placeholder=" E-mail : "
+              type="email"
+            />
 
+            <input
+              onChange={(eo) => {
+                setpassword(eo.target.value);
+              }}
+              required
+              placeholder=" Password : "
+              type="password"
+            />
 
-          }} required  placeholder=" UserName : "  type="text" />
+            <button
+              onClick={(eo) => {
+                eo.preventDefault();
 
-          <input onChange={(eo)=>{
+                createUserWithEmailAndPassword(auth, email, password)
+                  .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    console.log(user);
+                    sendEmailVerification(auth.currentUser).then(() => {
+                      //
+                      console.log("Email verification sent!");
+                    });
 
-Setemail(eo.target.value)
+                    updateProfile(auth.currentUser, {
+                      displayName: userName,
+                    })
+                      .then(() => {
+                        navigate("/");
+                      })
+                      .catch((error) => {
+                        console.log(error.code);
+                        // ...
+                      });
 
+                    // ...
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    sethasError(true);
 
-          }} required  placeholder=" E-mail : "  type="email" />
+                    switch (errorCode) {
+                      case "auth/invalid-email":
+                        setfirebaseError("Wrong Email");
+                        break;
 
-          <input  onChange={(eo)=>{
+                      case "auth/user-not-found":
+                        setfirebaseError("Wrong Email");
+                        break;
 
-         Setpassword(eo.target.value)
+                      case "auth/wrong-password":
+                        setfirebaseError("Wrong Password");
+                        break;
 
+                      case "auth/too-many-requests":
+                        setfirebaseError(
+                          "Too many requests, please try aganin later"
+                        );
+                        break;
 
-          }}   required placeholder=" Password : " type="password" />
-          <button onClick={(eo)=>{
-eo.preventDefault()
-createUserWithEmailAndPassword(auth, email, password)
+                      default:
+                        setfirebaseError("Please check your email & password");
+                        break;
+                    }
+                  });
+              }}
+            >
+              Sign up
+            </button>
+            <p className="account">
+              Already hava an account <Link to="/signin"> Sign-in</Link>
+            </p>
 
+            {hasError && <h2>{firebaseError}</h2>}
+          </form>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+};
 
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-
-    const auth = getAuth();
-    sendEmailVerification(auth.currentUser)
-      .then(() => {
-     
-console.log("   // Email verification sent!")
-      });
-const auth = getAuth();
-updateProfile(auth.currentUser, {
-  displayName: userName
-}).then(() => {
-  navigate("/")
-  // ...
-}).catch((error) => {
-console.log(error.code)
-  // ...
-});
-
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("erorrrrrrr")
-    // ..
-  });
-
-
-          }}>Sign up</button>
-          <p className="account">
-          Already hava an account <Link to="/Signin"> Sign-in</Link>
-          </p>
-        </form>
-  </main>
-<Footer/>
-</>
-  )
-}
-
-
-
-}
-
-export default Signup
+export default Signup;
